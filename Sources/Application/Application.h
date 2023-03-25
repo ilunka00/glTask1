@@ -17,8 +17,8 @@ public:
 
 	// lock copy and assigment
 	//
-	Application( const Application& other ) = delete;
-	Application& operator=( const Application& other ) = delete;
+	Application(const Application& other) = delete;
+	Application& operator=(const Application& other) = delete;
 
 	// initing window and ogl context
 	//
@@ -26,12 +26,12 @@ public:
 
 	// mouse callback
 	//
-	void Mouse( float x, float y );
-	void MouseClick( bool isLeft );
+	void Mouse(float& x, float& y);
+	void MouseClick(const bool& isLeft);
 
 	// keyboard callback
 	//
-	void Key( unsigned char key, bool bIsPressed );
+	void Key(const unsigned char& key,const bool& bIsPressed);
 
 	// frame app
 	//
@@ -39,7 +39,7 @@ public:
 
 	// update callback 
 	//
-	void Update( float deltaTime );
+	void Update(float& deltaTime);
 
 	// draw callback from ogl
 	//
@@ -47,7 +47,7 @@ public:
 
 	// clean up 
 	//
-	void clean();
+	void Clean();
 
 	// start of window's entry point here
 	//
@@ -55,12 +55,12 @@ public:
 protected:
 	// making window
 	//
-	void _MakeWindow( std::string sTitle, unsigned int uiWidth, unsigned int uiHeight );
+	void _MakeWindow(const std::string& sTitle,const unsigned int& uiWidth,const unsigned int& uiHeight);
 public:
 	// windows proc
 	// exception for window proc call
 	//
-	LRESULT WindowProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
+	LRESULT WindowProc(HWND& hWnd, UINT& uMsg, WPARAM& wParam, LPARAM& lParam);
 
 protected:
 	// create ogl context and surface

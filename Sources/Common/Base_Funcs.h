@@ -5,15 +5,14 @@ namespace Base
 	// call {Ctor} for ptr
 	//
 	template< typename type >
-	inline type* Contruct( void* ptr )
+	inline type* Contruct(void* ptr)
 	{
-		return new( ptr ) type;
+		return new(ptr) type;
 	}
 
 	// call {dtor} for ptr
-	//
 	template< typename type>
-	inline void Destroy( type *const _pPointer )
+	inline void Destroy(type* const _pPointer)
 	{
 		// destroy object at _Ptr
 		_pPointer->~type();
@@ -21,9 +20,9 @@ namespace Base
 
 	// Release COM object
 	template< typename Type>
-	inline void Release( Type &pObject )
+	inline void Release(Type& pObject)
 	{
-		if( pObject )
+		if (pObject)
 		{
 			pObject->Release();
 			pObject = nullptr;
@@ -33,9 +32,9 @@ namespace Base
 	// Delete data from pointer
 	//
 	template< typename Type>
-	inline void Delete( Type &pObject )
+	inline void Delete(Type& pObject)
 	{
-		if( pObject )
+		if (pObject)
 		{
 			delete pObject;
 			pObject = nullptr;
@@ -45,9 +44,9 @@ namespace Base
 	// delete array data from pointer
 	//
 	template< typename Type>
-	inline void DeleteArray( Type &pObject )
+	inline void DeleteArray(Type& pObject)
 	{
-		if( pObject )
+		if (pObject)
 		{
 			delete[] pObject;
 			pObject = nullptr;
@@ -57,9 +56,9 @@ namespace Base
 	// clean up data for pointer, force setup null
 	//
 	template< typename Type >
-	inline void Null( Type& pObject )
+	inline void Null(Type& pObject)
 	{
-		if( pObject != nullptr )
+		if (pObject != nullptr)
 		{
 			pObject = nullptr;
 		}
@@ -67,60 +66,60 @@ namespace Base
 
 	// allocate memory WITHOUT zerofying memory
 	//
-	inline void* Malloc( size_t size )
+	inline void* Malloc(size_t size)
 	{
-		if( size == 0 )
+		if (size == 0)
 		{
 			return nullptr;
 		}
-		return malloc( size );
+		return malloc(size);
 	}
 
 	// allocate memory for "type" WITHOUT zerofying memory 
 	//
 	template< typename Type>
-	inline Type* Malloc( size_t uiCount )
+	inline Type* Malloc(size_t uiCount)
 	{
-		if( uiCount == 0 )
+		if (uiCount == 0)
 		{
 			return nullptr;
 		}
-		return ( Type* )Base::Malloc( sizeof( Type ) * uiCount );
+		return (Type*)Base::Malloc(sizeof(Type) * uiCount);
 	}
 
 	// allocate memory with init 0 for each element
 	//
-	inline void* Calloc( size_t size )
+	inline void* Calloc(size_t size)
 	{
-		if( size == 0 )
+		if (size == 0)
 		{
 			return nullptr;
 		}
-		return calloc( 1, size );
+		return calloc(1, size);
 	}
 	// allocate memory with init 0 for known "type" element
 	//
 	template< typename Type>
-	inline Type* Calloc( size_t uiCount )
+	inline Type* Calloc(size_t uiCount)
 	{
-		if( uiCount == 0 )
+		if (uiCount == 0)
 		{
 			return nullptr;
 		}
-		return ( Type* )calloc( uiCount, sizeof( Type ) );
+		return (Type*)calloc(uiCount, sizeof(Type));
 	}
 
 
 	// free memory without calling dtors
 	//
 	template< typename Type>
-	inline void Free( Type *& pData )
+	inline void Free(Type*& pData)
 	{
-		if( pData == nullptr )
+		if (pData == nullptr)
 		{
 			return;
 		}
-		free( pData );
+		free(pData);
 		pData = nullptr;
 	}
 
@@ -128,13 +127,13 @@ namespace Base
 	// getting min from two value
 	//
 	template< typename Type >
-	inline const Type& Min( const Type& a, const Type& b )
+	inline const Type& Min(const Type& a, const Type& b)
 	{
 		return a < b ? a : b;
 	}
 
 	template< typename Type >
-	inline const Type MinEqual( const Type& a, const Type& b )
+	inline const Type MinEqual(const Type& a, const Type& b)
 	{
 		return a <= b ? a : b;
 	}
@@ -142,13 +141,13 @@ namespace Base
 	// getting max from to value
 	//
 	template< typename Type >
-	inline const Type& Max( const Type& a, const Type& b )
+	inline const Type& Max(const Type& a, const Type& b)
 	{
 		return a > b ? a : b;
 	}
 
 	template< typename Type >
-	inline const Type& MaxEqueal( const Type& a, const Type& b )
+	inline const Type& MaxEqueal(const Type& a, const Type& b)
 	{
 		return a >= b ? a : b;
 	}
@@ -156,41 +155,41 @@ namespace Base
 	// clamping value to range[min, max]
 	//
 	template<typename type>
-	inline const type& Clamp( const type& value, const type& minimal, const type& maximal )
+	inline const type& Clamp(const type& value, const type& minimal, const type& maximal)
 	{
 		//a <= b 
-		if( value <= minimal )
+		if (value <= minimal)
 		{
 			// value is less or equal to min
 			return minimal;
 		}
 		// value is not less, so we need to take min of max values
-		return Base::Min( value, maximal );
+		return Base::Min(value, maximal);
 	}
 
 	template< typename type >
-	inline type Lerp( const type& lValue, const type& rValue, float t )
+	inline type Lerp(const type& lValue, const type& rValue, float t)
 	{
-		t = Clamp( t, 0.0f, 1.0f );
-		return lValue + ( rValue - lValue )* t;
+		t = Clamp(t, 0.0f, 1.0f);
+		return lValue + (rValue - lValue) * t;
 	}
 
 	//
 	//
-	constexpr float kRand_Inv = 1.0f / ( float )RAND_MAX;
+	constexpr float kRand_Inv = 1.0f / (float)RAND_MAX;
 
 	//return rand float [0, 1]
 	//
 	inline float RandF()
 	{
-		return ( float )( rand() ) * kRand_Inv;
+		return (float)(rand()) * kRand_Inv;
 	}
 
 	//return rand from [a,b]
 	//
-	inline float RandF( float a, float b )
+	inline float RandF(float a, float b)
 	{
-		return a + RandF()*( b - a );
+		return a + RandF() * (b - a);
 	}
 };
 

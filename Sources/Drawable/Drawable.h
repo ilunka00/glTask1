@@ -19,8 +19,8 @@ public:
 	void Init();
 
 	void PreDraw()const;
-	void Draw( Sprite part ) const;
-	void PostDraw()const ;
+	void Draw(Sprite& part) const;
+	void PostDraw()const;
 
 	// clean ogl data
 	//

@@ -61,10 +61,11 @@
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <ExceptionHandling>false</ExceptionHandling>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
@@ -85,10 +86,11 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>../Sources;$(SolutionDir)\Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -107,6 +109,7 @@
     <ClInclude Include="..\Sources\Drawable\Drawable.h" />
     <ClInclude Include="..\Sources\esUtils\esUtil.h" />
     <ClInclude Include="..\Sources\Math\esMath.h" />
+    <ClInclude Include="..\Sources\pch.h" />
     <ClInclude Include="..\Sources\Sprite\Sprite.h" />
     <ClInclude Include="..\Sources\TGA\TGA.h" />
   </ItemGroup>
@@ -117,12 +120,17 @@
     <ClCompile Include="..\Sources\esUtils\esUtil.cpp" />
     <ClCompile Include="..\Sources\main\main.cpp" />
     <ClCompile Include="..\Sources\Math\esMath.cpp" />
+    <ClCompile Include="..\Sources\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\Sources\Sprite\Sprite.cpp" />
     <ClCompile Include="..\Sources\TGA\TGA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Bin\Resources\Shaders\Particle.fs" />
     <None Include="..\Bin\Resources\Shaders\Particle.vs" />
+    <None Include=".clang-format" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Bin\Resources\Textures\fire.tga" />

@@ -12,37 +12,37 @@ public:
 
 	// setter / getter parent transform
 	//
-	void setParentTM( Matrix matTM );
+	void setParentTM(Matrix& matTM);
 	Matrix getParentTM();
 
 	// setter / getter rotation
 	//
-	void setRotation( float fAngle );
+	void setRotation(float& fAngle);
 	float getRotation();
 
 	// setter / getter position
 	//
-	void setPosition( Vector2 pos );
+	void setPosition(Vector2& pos);
 	Vector2 getPosition();
 
 	// setter / getter scale
 	//
-	void setScale( Vector2 scale );
+	void setScale(const Vector2& scale);
 	Vector2 getScale();
 
 	// setter / getter active texture
 	//
-	void setTexture( int texID );
+	void setTexture(const int& texID);
 	int getTexture();
 
 	// setter/ getter tint color
 	//
-	void setTint( Vector4 color );
+	void setTint(Vector4& color);
 	Vector4 getTint();
 
 	// setter/ getter depth
 	//
-	void setDepth( float value );
+	void setDepth(float& value);
 	float getDepth();
 
 	// getter object TM
@@ -51,7 +51,7 @@ public:
 
 	// updating object transform
 	//
-	void MakeObjectTM( );
+	void MakeObjectTM();
 
 protected:
 	// base TM of create time

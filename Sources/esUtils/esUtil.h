@@ -8,13 +8,13 @@
 
 
 #ifndef ESUTIL_API
-	#define ESUTIL_API  __cdecl
-	#define ESCALLBACK  __cdecl
+#define ESUTIL_API  __cdecl
+#define ESCALLBACK  __cdecl
 
-	#include <stdarg.h>
-	#include <cstdio>
+#include <stdarg.h>
+#include <cstdio>
 #endif
-	
+
 
 
 /// esCreateWindow flag - RGB color buffer
@@ -32,7 +32,7 @@
 /// \brief Log a message to the debug output for the platform
 /// \param formatStr Format string for error log.  
 //
-void ESUTIL_API esLogMessage ( const char *formatStr, ... );
+void ESUTIL_API esLogMessage(const char* formatStr, ...);
 
 //
 ///
@@ -41,7 +41,7 @@ void ESUTIL_API esLogMessage ( const char *formatStr, ... );
 /// \param shaderSrc Shader source string
 /// \return A new shader object on success, 0 on failure
 //
-GLuint ESUTIL_API esLoadShader ( GLenum type, char * filename);
+GLuint ESUTIL_API esLoadShader(GLenum type, char* filename);
 
 //
 ///
@@ -51,7 +51,7 @@ GLuint ESUTIL_API esLoadShader ( GLenum type, char * filename);
 /// \param fragShaderSrc Fragment shader source code
 /// \return A new program object linked with the vertex/fragment shader pair, 0 on failure
 //
-GLuint ESUTIL_API esLoadProgram ( GLuint vertexShader, GLuint fragmentShader );
+GLuint ESUTIL_API esLoadProgram(GLuint vertexShader, GLuint fragmentShader);
 
 
 

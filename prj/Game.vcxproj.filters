@@ -25,6 +25,9 @@
     <ClCompile Include="..\Sources\Math\esMath.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\pch.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\Common\Base_Funcs.h">
@@ -53,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="..\Sources\Math\esMath.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\pch.h">
+      <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +103,7 @@
     <None Include="..\Bin\Resources\Shaders\Particle.vs">
       <Filter>Resources\Shaders</Filter>
     </None>
+    <None Include=".clang-format" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Bin\Resources\Textures\fire.tga">
